@@ -1,0 +1,13 @@
+Employee ID,Employee Name,Department,Designation,Join Date,Status,Location,Gender,Salary,Email,Manager,Employment Type
+EMP001,Amara Silva,Operations,Operations Executive,2021-03-15,Active,Colombo,Female,145000,amara.silva@example.com,Nimal Perera,Permanent
+EMP002,Kasun Fernando,IT,Systems Engineer,2020-07-01,Active,Colombo,Male,210000,kasun.fernando@example.com,Shalini Dias,Permanent
+EMP003,Nadeesha Perera,Finance,Accountant,2022-01-10,Active,Colombo,Female,175000,nadeesha.perera@example.com,Ruwan Jayasinghe,Permanent
+EMP004,Tharindu Jayasuriya,Operations,Shift Supervisor,2019-11-20,Active,Hambantota,Male,195000,tharindu.j@example.com,Nimal Perera,Permanent
+EMP005,Imesha Gunawardena,HR,HR Executive,2023-05-08,Active,Colombo,Female,155000,imesha.g@example.com,Malini Rodrigo,Permanent
+EMP006,Chathura Senanayake,Sales,Account Manager,2024-02-19,Active,Colombo,Male,180000,chathura.s@example.com,Dinesh Abeysekera,Permanent
+EMP007,Shehani Wijeratne,IT,Support Analyst,2025-01-06,Probation,Colombo,Female,130000,shehani.w@example.com,Shalini Dias,Probation
+EMP008,Ravindu De Silva,Operations,Yard Coordinator,2018-06-25,Inactive,Colombo,Male,160000,ravindu.d@example.com,Nimal Perera,Permanent
+EMP009,Piumi Herath,Finance,Finance Analyst,2024-08-12,Active,Colombo,Female,165000,piumi.h@example.com,Ruwan Jayasinghe,Permanent
+EMP010,Danuka Rathnayake,Sales,Sales Executive,2025-07-14,Active,Galle,Male,140000,danuka.r@example.com,Dinesh Abeysekera,Contract
+EMP011,Sachini Peris,HR,Recruitment Coordinator,2026-01-12,Active,Colombo,Female,135000,sachini.p@example.com,Malini Rodrigo,Permanent
+EMP012,Akila Bandara,IT,Data Analyst,2026-04-20,Active,Colombo,Male,190000,akila.b@example.com,Shalini Dias,Permanent
