@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">HR</div>
+        <div>
+          <div class="brand-title">HR Dashboard</div>
+          <div class="brand-subtitle">Workforce Analytics</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-view="dashboard">Dashboard</button>
+        <button class="nav-item" data-view="employees">Employees</button>
+        <button class="nav-item disabled">Attendance <span>Soon</span></button>
+        <button class="nav-item disabled">Leave <span>Soon</span></button>
+        <button class="nav-item disabled">Payroll <span>Soon</span></button>
+        <button class="nav-item disabled">Recruitment <span>Soon</span></button>
+        <button class="nav-item disabled">Reports <span>Soon</span></button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="privacy-card">
+          <strong>Local data mode</strong>
+          <span>Imported HR data stays on this PC.</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">HR Overview</h1>
+          <p id="pageSubtitle">Upload an HR Excel file to populate your workforce dashboard.</p>
+        </div>
+        <div class="topbar-actions">
+          <button id="clearDataBtn" class="button button-secondary">Clear local data</button>
+          <button id="importBtn" class="button button-primary">Import Excel / CSV</button>
+        </div>
+      </header>
+
+      <section id="emptyState" class="empty-state">
+        <div class="empty-icon">↥</div>
+        <h2>Start with your HR data</h2>
+        <p>Import an Excel or CSV file. The app will recognise common employee fields and build the dashboard automatically.</p>
+        <button id="emptyImportBtn" class="button button-primary">Choose HR file</button>
+        <small>Supported: .xlsx, .xls, .csv</small>
+      </section>
+
+      <div id="appContent" class="hidden">
+        <section id="dashboardView" class="view active-view">
+          <div class="source-strip">
+            <div>
+              <span class="eyebrow">Current dataset</span>
+              <strong id="sourceFile">—</strong>
+            </div>
+            <div>
+              <span class="eyebrow">Last imported</span>
+              <strong id="importedAt">—</strong>
+            </div>
+          </div>
+
+          <section class="kpi-grid">
+            <article class="kpi-card"><span>Total Employees</span><strong id="kpiTotal">0</strong><small>All loaded records</small></article>
+            <article class="kpi-card"><span>Active Employees</span><strong id="kpiActive">0</strong><small>Current active workforce</small></article>
+            <article class="kpi-card"><span>Departments</span><strong id="kpiDepartments">0</strong><small>Unique departments</small></article>
+            <article class="kpi-card"><span>Average Tenure</span><strong id="kpiTenure">0.0 yrs</strong><small>Based on join date</small></article>
+          </section>
+
+          <section class="dashboard-grid two-col">
+            <article class="panel">
+              <div class="panel-heading"><div><span class="eyebrow">Workforce</span><h3>Employees by Department</h3></div></div>
+              <div id="departmentChart" class="bar-chart"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading"><div><span class="eyebrow">Status</span><h3>Employment Status</h3></div></div>
+              <div id="statusSummary" class="summary-list"></div>
+            </article>
+          </section>
+
+          <section class="dashboard-grid two-col">
+            <article class="panel">
+              <div class="panel-heading"><div><span class="eyebrow">Profile</span><h3>Gender Distribution</h3></div></div>
+              <div id="genderSummary" class="summary-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-heading"><div><span class="eyebrow">Growth</span><h3>Joiners by Year</h3></div></div>
+              <div id="joinerChart" class="bar-chart"></div>
+            </article>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading"><div><span class="eyebrow">Recent records</span><h3>Employee Snapshot</h3></div><button class="text-button" id="showAllEmployeesBtn">View all employees</button></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>ID</th><th>Name</th><th>Department</th><th>Designation</th><th>Status</th><th>Location</th></tr></thead>
+                <tbody id="snapshotTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section id="employeesView" class="view">
+          <section class="panel employee-panel">
+            <div class="employee-toolbar">
+              <div class="search-box"><input id="employeeSearch" type="text" placeholder="Search employee, ID, email, manager..." /></div>
+              <select id="departmentFilter"><option value="">All departments</option></select>
+              <select id="statusFilter"><option value="">All statuses</option></select>
+              <select id="locationFilter"><option value="">All locations</option></select>
+            </div>
+            <div class="result-count" id="resultCount">0 employees</div>
+            <div class="table-wrap employee-table-wrap">
+              <table class="employee-table">
+                <thead><tr><th>ID</th><th>Employee</th><th>Department</th><th>Designation</th><th>Join Date</th><th>Status</th><th>Location</th><th>Manager</th><th>Email</th></tr></thead>
+                <tbody id="employeeTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
